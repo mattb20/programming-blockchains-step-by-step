@@ -30,23 +30,6 @@ end # class Block
 
 
 
-pp Block.new( 'Hello, Cryptos!' )
-
-pp Block.new( 'Hello, Cryptos! - Hello, Cryptos! - Hello, Cryptos!' )
-
-pp Block.new( 'Your Name Here' )
-
-pp Block.new( 'Data Data Data Data' )
-
-pp Block.new( <<TXT )
-  Data Data Data Data Data Data
-  Data Data Data Data Data Data
-  Data Data Data Data Data Data
-  Data Data Data Data Data Data
-  Data Data Data Data Data Data
-TXT
-
-
 pp Digest::SHA256.hexdigest( '26762Hello, Cryptos!' )
 b0 = Block.new('Hello, Cryptos!', '0000000000000000000000000000000000000000000000000000000000000000')
 b1 = Block.new('Hello, Cryptos! - Hello, Cryptos!', '000047954e7d5877b6dea6915c48e84579b5c64fb58d5b6488863c241f1ce2af' )
@@ -58,3 +41,6 @@ b3 = Block.new('Data Data Data Data', b2.hash)
 blockchain = [b0, b1, b2, b3]
 pp blockchain
 ## the more blocks added the harder it is to reverse engineer the blockchain bearing in mind each hash is unique
+## checking chained hashes:
+puts b1.prev == b0.hash
+puts b1.hash == b2.prev
