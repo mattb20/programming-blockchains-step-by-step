@@ -56,4 +56,5 @@ b2 = Block.new('Your Name Here', b1.hash)
 b3 = Block.new('Data Data Data Data', b2.hash)
 
 blockchain = [b0, b1, b2, b3]
-pp blockchain 
+pp blockchain
+## the more blocks added the harder it is to reverse engineer the blockchain bearing in mind each hash is unique
